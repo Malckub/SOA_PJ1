@@ -1,5 +1,0 @@
-INDEX VERSION 1.4+C:\xampp\htdocs\SOA_PJ1\soaLab7Ec-master\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4060638464.index
-1262750063.index
-1942264821.index
-3619859042.index
