@@ -15,7 +15,6 @@ class RoomController extends Controller
     {
         $emp = DB::table('Room')->get();
         return view('Main',compact('emp'));
-        //eieiddd
     }
     
     

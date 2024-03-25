@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\reserveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 /*
@@ -14,3 +15,10 @@ use App\Http\Controllers\RoomController;
 */
 //
 Route::get('/Main',[RoomController::class,'index'])->name('Main');
+
+
+
+
+
+//makereservere
+Route::get('/make',[reserveController::class,'index'])->name('Make');
