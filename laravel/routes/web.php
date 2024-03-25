@@ -12,5 +12,5 @@ use App\Http\Controllers\RoomController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+//
 Route::get('/Main',[RoomController::class,'index'])->name('Main');
