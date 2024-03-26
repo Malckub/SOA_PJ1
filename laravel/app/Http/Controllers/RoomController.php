@@ -26,6 +26,7 @@ class RoomController extends Controller
     ];
     // dd($data);
     return view('make',compact('data'));
+
     }
     
     

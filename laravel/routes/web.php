@@ -15,10 +15,11 @@ use App\Http\Controllers\RoomController;
 */
 //
 Route::get('/Main',[RoomController::class,'index'])->name('Main');
-Route::post('/send',[RoomController::class,'send'])->name('send');
+Route::any('/send',[RoomController::class,'send'])->name('send');
 
 
 
 
-//makereservere
+//makereserverRoute
+// Route::get('/make',[reserveController::class,'index'])->name('make');
 Route::post('/makere',[reserveController::class,'makere'])->name('makere');
