@@ -16,6 +16,17 @@ class RoomController extends Controller
         $emp = DB::table('Room')->get();
         return view('Main',compact('emp'));
     }
+
+    function send(Request $request){
+    $data = [
+        'Type' => $request->Type,
+        'Price' => $request->Price,
+        'Roomsize' => $request->Roomsize,
+        'Person' => $request->Person
+    ];
+    // dd($data);
+    return view('make',compact('data'));
+    }
     
     
 }
