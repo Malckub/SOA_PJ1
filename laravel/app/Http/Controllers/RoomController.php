@@ -14,9 +14,9 @@ class RoomController extends Controller
 {
     public function index()
     {
-        $respone = Http::get('http://localhost:8080/api/reservations');
-        $profile = $respone->object();
-        dd($profile);
+        //$respone = Http::get('http://localhost:8080/api/reservations');
+        //$profile = $respone->object();
+        //dd($profile);
         $emp = DB::table('Room')->get();
         return view('Main',compact('emp'));
     }
