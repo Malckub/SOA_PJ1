@@ -18,13 +18,16 @@ class RoomController extends Controller
     }
 
     function send(Request $request){
+    //dd($request->all());
     $data = [
         'Type' => $request->Type,
         'Price' => $request->Price,
         'Roomsize' => $request->Roomsize,
-        'Person' => $request->Person
+        'Person' => $request->Person,
+        'datestart' => $request->datestart,
+        'dateend'=>$request->dateend
     ];
-    // dd($data);
+    //dd($data);
     return view('make',compact('data'));
 
     }
