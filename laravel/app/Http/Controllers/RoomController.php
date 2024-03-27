@@ -18,6 +18,7 @@ class RoomController extends Controller
         //$profile = $respone->object();
         //dd($profile);
         $emp = DB::table('Room')->get();
+        //dd($emp);
         return view('Main',compact('emp'));
     }
 
@@ -29,7 +30,8 @@ class RoomController extends Controller
         'Roomsize' => $request->Roomsize,
         'Person' => $request->Person,
         'datestart' => $request->datestart,
-        'dateend'=>$request->dateend
+        'dateend'=>$request->dateend,
+        'roomID'=>$request->roomID
     ];
     //dd($data);
     return view('make',compact('data'));

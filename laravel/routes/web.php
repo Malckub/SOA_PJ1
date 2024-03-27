@@ -3,6 +3,7 @@
 use App\Http\Controllers\reserveController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\addReserve;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,12 +15,9 @@ use App\Http\Controllers\RoomController;
 |
 */
 //
-Route::get('/Main',[RoomController::class,'index'])->name('Main');
+Route::get('/',[RoomController::class,'index'])->name('Main');
 Route::any('/send',[RoomController::class,'send'])->name('send');
 
-
-
-
-//makereserverRoute
-// Route::get('/make',[reserveController::class,'index'])->name('make');
-Route::post('/makere',[reserveController::class,'makere'])->name('makere');
+// Rout::get('/make',[reserveController::class,'index'])->name('make');
+Route::any('/makere',[reserveController::class,'makere'])->name('makere');
+Route::post('/addRes',[addReserve::class,'addReserve'])->name('res');

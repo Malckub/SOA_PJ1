@@ -39,6 +39,7 @@
                                     </svg>
                                     <div class="card-body">
                                         <input type="hidden" name="Type" class="card-title" id="Type" value="{{$item->Type}}">{{ $item->Type }}</input>
+                                        <input type="hidden" name="roomID" class="card-title" id="roomID" value="{{$item->roomID}}">{{ $item->roomID }}</input>
                                         <p class="card-text"></p>
                                     </div>
                                     <ul class="list-group list-group-flush">

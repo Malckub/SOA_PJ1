@@ -11,9 +11,11 @@ class reserveController extends Controller
     {
         return view('make');
     }
-    
+  
     function makere(Request $request)
     {
+
+        //dd($request->all());
         $request->validate(
             [
                 'fname' => 'required',
@@ -30,7 +32,9 @@ class reserveController extends Controller
                 'phone.max' => 'เบอร์ติดต่อไม่ควรเกิน 10 ตัว',
             ]
         );
+
         $data1= [
+            'ReserveID'=>$request->reserveID,
             'Type' => $request->Type,
             'Price'=>$request->Price,
             'Roomsize'=>$request->Roomsize,
@@ -38,14 +42,17 @@ class reserveController extends Controller
             'fname' => $request->fname,
             'lname' => $request->lname,
             'email' => $request->em,
-            'phone' => $request->phone
+            'phone' => $request->phone,
+            'datestart' =>$request->datestart,
+            'dateend' =>$request->dateend,
+            'roomID'=>$request->roomID
         ];
         session(['type' => 'malc']);
 
         // $data2 =[
         //     ''
         // ];
-        dd($data1);
-       // return redirect('/send');
+        //dd($data1);
+        return view('reserve',compact('data1'));
     }
 }

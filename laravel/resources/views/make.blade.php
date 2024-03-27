@@ -25,6 +25,14 @@
                             <input type="hidden" class="form-control" name="Price" value="{{ $data['Price'] }}">
                             <h1>{{ $data['Price'] }}</h1>
                         </div>
+                        <div class="list-group-item form-group">
+                            <input type="hidden" class="form-control" name="roomID" value="{{ $data['roomID'] }}">
+                           
+                        </div>
+                        <div class="list-group-item form-group">
+                            <input type="hidden" class="form-control" name="RoomID" value="{{ $data['roomID'] }}">
+                            <h1>{{ $data['Price'] }}</h1>
+                        </div>
 
                         <div class="list-group-item form-group">
                             ห้องขนาด :
@@ -35,13 +43,14 @@
 
                         <div class="list-group-item form-group" >
                             จำนวน
-                            <input type="hidden" class="form-control" name="Person" value="{{ $data['datestart'] }}">
+                            <input type="hidden" class="form-control" name="Person" value="{{ $data['Person'] }}">
                             <h1>{{ $data['Person'] }}</h1>
                             คน
                         </div>
                         <div class="list-group-item form-group" >
                             CheckIn
-                            <input type="hidden" class="form-control" name="Person" value="{{ $data['dateend'] }}">
+                            <input type="hidden" class="form-control" name="datestart" value="{{ $data['datestart'] }}">
+                            <input type="hidden" class="form-control" name="dateend" value="{{ $data['dateend'] }}">
                             <h1>{{ $data['datestart'] }}</h1> CheckOut <h1>{{ $data['dateend'] }}</h1>
                             
                         </div>
@@ -49,6 +58,10 @@
                 </div>
                 @csrf
                 <div class="col-12 col-lg-8 order-lg-0">
+                    <div class="form-group">
+                        <label class="form-label">Reservation Number </label>
+                        <input type="text" class="form-control" name="reserveID" value="<?php echo rand(100000,999999); ?>" readonly>
+                    </div>
                     <div class="form-group">
                         <label class="form-label">First name</label>
                         <input type="text" class="form-control" name="fname">
