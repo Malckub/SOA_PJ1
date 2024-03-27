@@ -35,9 +35,15 @@
 
                         <div class="list-group-item form-group" >
                             จำนวน
-                            <input type="hidden" class="form-control" name="Person" value="{{ $data['Person'] }}">
+                            <input type="hidden" class="form-control" name="Person" value="{{ $data['datestart'] }}">
                             <h1>{{ $data['Person'] }}</h1>
                             คน
+                        </div>
+                        <div class="list-group-item form-group" >
+                            CheckIn
+                            <input type="hidden" class="form-control" name="Person" value="{{ $data['dateend'] }}">
+                            <h1>{{ $data['datestart'] }}</h1> CheckOut <h1>{{ $data['dateend'] }}</h1>
+                            
                         </div>
                     </ul>
                 </div>
