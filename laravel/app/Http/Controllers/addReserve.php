@@ -47,6 +47,7 @@ class addReserve extends Controller
         $date2->add(new DateInterval('P1D'));
         //echo $date2->format('Y-m-d');
         //dd($diff->days);
+        return redirect('/');
     }
    
 }

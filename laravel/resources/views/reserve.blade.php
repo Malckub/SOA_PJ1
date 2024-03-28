@@ -96,10 +96,10 @@
                         
                     </div>
                 </div>
-                <input style="margin-top: 10px" type="submit" value="Make Reservation" class="btn btn-primary">
+                <button style="margin-top: 10px" type="submit" value="Make Reservation" class="btn btn-primary" onclick="return confirm('ต่องการบันทึกการจองหรือไม่')">Make Reservation</button>
             </div>    
         </div>
     </div>
-   
 </form>
+
 @endsection

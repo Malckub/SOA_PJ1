@@ -23,7 +23,7 @@
                         <div class="row g-3">
     
                             <div class="col-md-6">
-                                <label for="date_start" class="form-label">เวลาเริ่มโปรโมชั่น</label>
+                                <label for="date_start" class="form-label">จองวันที่:  </label>
                                 <input type="date" id="pro-start" name="datestart" value="" min="2024-01-01" max="2025-12-31" />
                                 @error('pro-start')
                                     <div class="my-2"> 
@@ -32,7 +32,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <label for="date_end" class="form-label">เวลาจบโปรโมชั่น</label>
+                                <label for="date_end" class="form-label">ถึงวันที่:</label>
                                 <input type="date" id="pro-end" name="dateend" value="" min="2024-01-01" max="2025-12-31" />
                                 @error('pro-end')
                                     <div class="my-2"> 
