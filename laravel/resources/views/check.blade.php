@@ -9,7 +9,7 @@
         <input type="text" class="form-control" name="email" id="email" placeholder="" value="">
     </div>
     <button class="d-inline" type="submit" class="btn btn-primary">Submit</button>
-    <a class="d-inline" href="{{ route('Main') }}" class="btn btn-secondary">กลับไปหน้าหลัก</a>
+    <a class="d-inline" href="{{ route('real') }}" class="btn btn-secondary">กลับไปหน้าหลัก</a>
 </form>
 
 @if(session('error'))
