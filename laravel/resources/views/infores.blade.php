@@ -28,14 +28,14 @@
                     <div class="receipt-header receipt-header-mid">
                         <div class="col-xs-8 col-sm-8 col-md-8 text-left">
                             <div class="receipt-right">
-                                <h5>{{$data1->name}}</h5>
-                                <p><b>Mobile :</b>{{$data1->phone}}</p>
-                                <p><b>Email :</b> {{$data1->email}}</p>
+                                <h5>{{$check->name}}</h5>
+                                <p><b>Mobile :</b>{{$check->phone}}</p>
+                                <p><b>Email :</b> {{$check->email}}</p>
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-8 col-md-8">
                             <div class="receipt-left">
-                                <h3>RESERVATION # {{$data1->reservation_id}}</h3>
+                                <h3>RESERVATION # {{$check->reservationId}}</h3>
                             </div>
                         </div>
                     </div>
@@ -51,8 +51,8 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-md-9">Room : {{$TY}} </td>
-                                <td class="col-md-3"><i class="fa fa-inr"></i> {{$data1->price}}</td>
+                                <td class="col-md-9">Room : {{$check->room->type}} </td>
+                                <td class="col-md-3"><i class="fa fa-inr"></i> {{$check->price}}</td>
                             </tr>
                             <tr>
                                 <td class="col-md-9">Food Order</td>
@@ -63,7 +63,7 @@
                             <tr>
                                 
                                 <td class="text-right"><h2><strong>Total: </strong></h2></td>
-                                <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>{{$data1->price}}/-</strong></h2></td>
+                                <td class="text-left text-danger"><h2><strong><i class="fa fa-inr"></i>{{$check->price}}/-</strong></h2></td>
                             </tr>
                         </tbody>
                     </table>
@@ -73,8 +73,8 @@
                     <div class="receipt-header receipt-header-mid receipt-footer">
                         <div class="col-xs-8 col-sm-8 col-md-8 text-left">
                             <div class="receipt-right">
-                                <p><b>CheckIN :</b> {{$data1->checkin}}</p>
-                                <p><b>CheckOUT :</b> {{$data1->checkout}}</p>
+                                <p><b>CheckIN :</b> {{$ds}}</p>
+                                <p><b>CheckOUT :</b> {{$de}}</p>
                                 <h5 style="color: rgb(140, 140, 140);">Please Check your Reservation</h5>
                             </div>
                         </div>

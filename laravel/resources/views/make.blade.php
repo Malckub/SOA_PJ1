@@ -5,7 +5,7 @@
     <form class="main-content" style="position: relative;" method="POST" action="{{ route('makere') }}">
         @csrf
         <div class="container">
-            <div class="row" <div class="col order-sm-last">
+            <div class="row"  class="col order-sm-last">
                 <div class="col-12 col-lg-4 mb-5 mb-lg-0 order-lg-1 card shadow-sm">
                     <img src={{$data['img']}}>
                     <div class="card-body form-group">

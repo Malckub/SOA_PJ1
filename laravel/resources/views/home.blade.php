@@ -2,6 +2,11 @@
 @section('title')
 
 @section('content')
+<div id="reservationform" class="container py-2">
+    <div class="row">
+        <a href="{{ route('check') }}">CHECK Your Reservation</a>
+    </div>
+</div>
     <section class="py-5 text-center">
         <div class="container">
             <div class="row justify-content-center">

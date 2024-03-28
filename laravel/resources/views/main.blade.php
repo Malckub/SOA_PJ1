@@ -2,11 +2,7 @@
 @section('title')
 
 @section('content')
-    <div id="reservationform" class="container py-2">
-        <div class="row">
-            <a href="{{ route('check') }}">CHECK Your Reservation</a>
-        </div>
-    </div>
+    
 
     @php
         $image = ['room1.jpg', 'room2.jpg', 'room3.jpg', 'room4.jpg'];

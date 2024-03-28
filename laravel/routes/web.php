@@ -26,4 +26,4 @@ Route::any('/send',[RoomController::class,'send'])->name('send');
 Route::any('/makere',[reserveController::class,'makere'])->name('makere');
 Route::post('/addRes',[addReserve::class,'addReserve'])->name('res');
 Route::get('/check',[checkres::class,'index'])->name('check');
-Route::post('/checkres',[checkres::class,'check'])->name('checkcon');
+Route::any('/checkres',[checkres::class,'check'])->name('checkcon');
