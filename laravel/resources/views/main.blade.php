@@ -2,101 +2,106 @@
 @section('title')
 
 @section('content')
-<form method="POST" action="{{route('send')}}">
-<div class="container py-2">
-    <div class="row">
-        <a href="{{route('check')}}">CHECK Your Reservation</a>
-        <div class="col-md-6">
-            <label for="date_start" class="form-label">CheckIn</label>
-            <input type="date" id="datestart" name="datestart" value="" min="2024-01-01" max="2025-12-31" />
+    <div id="reservationform" class="container py-2">
+        <div class="row">
+            <a href="{{ route('check') }}">CHECK Your Reservation</a>
+            <div class="col-md-6">
+                <label for="date_start" class="form-label">CheckIn</label>
+                <input type="date" id="datestart" name="datestart" value="" min="2024-01-01" max="2025-12-31" />
+                @error('datestart')
+                <div class="my-2"> 
+                    <span class="text text-danger">{{$message}}</span>
+                </div>
+                @enderror
+            </div>
+          
+      
+            <div class="col-md-6">
+                <label for="date_end" class="form-label">CheckOut</label>
+                <input type="date" id="dateend" name="dateend" value="" min="2024-01-01" max="2025-12-31" />
+                @error('dateend')
+                <div class="my-2"> 
+                    <span class="text text-danger">{{$message}}</span>
+                </div>
+            @enderror
+            </div>
+          
         </div>
-        <div class="col-md-6">
-            <label for="date_end" class="form-label">CheckOut</label>
-            <input type="date" id="dateend" name="dateend" value="" min="2024-01-01" max="2025-12-31" />
-        </div>
-        
     </div>
-</div>    
-<main>
-    <div class="album py-5 bg-body-tertiary">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-                @foreach ($emp as $item)
-                    @csrf
-                    <div class="col order-sm-last">
-                        <!-- ใช้ order-sm-last เพื่อให้แสดงทางขวาในหน้าจอขนาดเล็กขึ้น -->
-                        <div class="card shadow-sm">
-                            
-                            <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                xmlns="http://www.w3.org/2000/svg" role="img"
-                                aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice"
-                                focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#55595c"></rect>
-                                <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                            </svg>
-                            <div class="card-body h3">
-                                <p>ประเภทห้อง:</p>
-                                <input type="hidden" name="Type" class="card-title" id="Type" value="{{ $item->Type }}">{{ $item->Type }}</input>
-                                <input type="hidden" name="roomID" class="card-title" id="roomID" value="{{ $item->roomID }}"></input>
-                                <p class="card-text"></p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <div class="list-group-item">
-                                    ราคา :
-                                    <input type="hidden" class="form-control" name="Price"
-                                        value="{{ $item->Price }}" id="Price" placeholder="" required=""
-                                        readonly>
-                                    <h1>{{ $item->Price }}</h1>
-                                </div>
-                                <div class="list-group-item">
-                                    ห้องขนาด :
-                                    <input type="hidden" class="form-control" name="Roomsize"
-                                        value="{{ $item->RoomSize }}" id="Roomsize" placeholder="" required=""
-                                        readonly>
-                                    <h1>{{ $item->RoomSize }}</h1>
-                                    ตร.ม.
-                                </div>
-                                <div class="list-group-item">
-                                    จำนวน
-                                    <input type="hidden" class="form-control" name="Person"
-                                        th:text="{{ $item->Person }}" value="{{ $item->Person }}" id="Person"
-                                        placeholder="" required="" readonly>
-                                    <h1>{{ $item->Person }}</h1>
-                                    คน
-                                </div>
-                                
-                            </ul>
-                            <div class="card-body">
-                                <input type="submit" value="เลือกห้องนีั" class="btn btn-primary">
-                            </div>
+    @php
+        $image = ['room1.jpg', 'room2.jpg', 'room3.jpg', 'room4.jpg'];
+        $x = 0;
+    @endphp
+    <main>
+        <div class="album py-5 bg-body-tertiary">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-                        </div>
-                    </div>
-                @endforeach
+                    @foreach ($emp as $item)
+                        <form method="POST" action="{{ route('send') }}">
+                            @csrf
+                            <div class="col order-sm-last">
+                                <div class="card shadow-sm">
+                                    <img src="{{ $image[$x] }}">
+                                    <input  type="hidden" name="img" value="{{$image[$x]}}">
+                                    <div class="card-body h3">
+                                        <p>ประเภทห้อง:</p>
+                                        <input type="hidden" name="Type" class="card-title" id="Type" value="{{ $item->type }}">{{ $item->type }}
+                                        <input  type="hidden" name="datestart" id="dates" value="">
+                                        <input type="hidden" name="dateend" id="datee" value="">
+                                        <input type="hidden" name="roomID" class="card-title" id="roomID"
+                                            value="{{ $item->roomId }}"></input>
+                                        <p class="card-text"></p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <div class="list-group-item">
+                                            ราคา :
+                                            <input type="hidden" class="form-control" name="Price"
+                                                value="{{ $item->price }}">
+                                            <h1>{{ $item->price }}</h1>
+                                        </div>
+                                        <div class="list-group-item">
+                                            ห้องขนาด :
+                                            <input type="hidden" class="form-control" name="Roomsize"
+                                                value="{{ $item->roomsize }}">
+                                            <h1>{{ $item->roomsize }}</h1>
+                                            ตร.ม.
+                                        </div>
+                                        <div class="list-group-item">
+                                            จำนวน
+                                            <input type="hidden" class="form-control" name="Person"
+                                                value="{{ $item->person }}">
+                                            <h1>{{ $item->person }}</h1>
+                                            คน
+                                        </div>
+                                    </ul>
+                                    <div class="card-body">
+                                        <input type="submit" value="เลือกห้องนีั" class="btn btn-primary">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                        @php
+                            $x += 1;
+                        @endphp
+                    @endforeach
+
+                </div>
             </div>
         </div>
-    </div>
-</main>
-</form>
+    </main>
 
-<script>
-    document.getElementById('reservationForm').addEventListener('submit', function(event) {
-        var datestart = document.getElementById('datestart').value;
-        var dateend = document.getElementById('dateend').value;
-
-        if (datestart === '' || dateend === '') {
-            alert('กรุณากรอกวันที่ให้ครบถ้วน');
-            event.preventDefault();
-            return;
-        }
-
-        if (datestart > dateend) {
-            alert('กรุณาเลือกวัน Checkout ใหม่');
-            event.preventDefault();
-        }
-    });
-</script>
-
+    <script>
+        document.getElementById('datestart').addEventListener('change', function() {
+            var datestart = this.value;
+            document.getElementById('dates').value = datestart;
+            document.getElementById('dateend').min = datestart;
+        });
+        document.getElementById('dateend').addEventListener('change', function() {
+            var dateend = this.value;
+            document.getElementById('datee').value = dateend;
+        });
+    </script>
 @endsection

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers;
 
@@ -14,36 +14,34 @@ class RoomController extends Controller
 {
     public function index()
     {
-        //$respone = Http::get('http://localhost:8080/api/reservations');
-        //$profile = $respone->object();
-        //dd($profile);
-        $emp = DB::table('Room')->get();
-        $res = DB::table('reservation')->get();
-        $result = $res->where('reservation_id', 3)
-                  ->where('email', "saddas@gmail.com")
-                  ->first(); // หรือใช้ get() ถ้าต้องการรายการทั้งหมด
-
-    // ตรวจสอบว่ามีข้อมูลที่ตรงกันหรือไม่
-   
-        //dd($res);
-        return view('Main',compact('emp'));
+        $repond = Http::get('http://localhost:8080/SOA_PJ-0.0.1-SNAPSHOT/room');
+        $emp = $repond->object();
+        // dd($emp);
+        // $emp = DB::table('room')->get();
+        return view('Main', compact('emp'));
     }
 
-    function send(Request $request){
-    //dd($request->all());
-    $data = [
-        'Type' => $request->Type,
-        'Price' => $request->Price,
-        'Roomsize' => $request->Roomsize,
-        'Person' => $request->Person,
-        'datestart' => $request->datestart,
-        'dateend'=>$request->dateend,
-        'roomID'=>$request->roomID
-    ];
-    //dd($data);
-    return view('make',compact('data'));
-
+    function send(Request $request)
+    {
+        $request->validate([
+            'datestart'=>'required',
+            'dateend'=>'required',
+        ],[
+            'datestart.required'=>'กรุณาเลือกวันที่',
+            'dateend.required'=>'กรุณาเลือกวันที่'
+        ]);
+        // dd($request->all());
+        $data = [
+            'img' => $request->img,
+            'Type' => $request->Type,
+            'Price' => $request->Price,
+            'Roomsize' => $request->Roomsize,
+            'Person' => $request->Person,
+            'datestart' => $request->datestart,
+            'dateend' => $request->dateend,
+            'roomID' => $request->roomID
+        ];
+        // dd($data);
+        return view('make', compact('data'));
     }
-    
-    
 }
