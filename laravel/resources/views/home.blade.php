@@ -2,10 +2,6 @@
 @section('title')
 
 @section('content')
-
-
-<body> 
-
     <section class="py-5 text-center">
         <div class="container">
             <div class="row justify-content-center">
@@ -23,7 +19,7 @@
     
                             <div class="col-md-6">
                                 <label for="date_start" class="form-label">เวลาเริ่มโปรโมชั่น</label>
-                                <input type="date" id="pro-start" name="pro-start" value="" min="2024-01-01" max="2025-12-31" />
+                                <input type="date" id="pro-start" name="datestart" value="" min="2024-01-01" max="2025-12-31" />
                                 @error('pro-start')
                                     <div class="my-2"> 
                                         <span class="text text-danger">{{$message}}</span>
@@ -32,7 +28,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="date_end" class="form-label">เวลาจบโปรโมชั่น</label>
-                                <input type="date" id="pro-end" name="pro-end" value="" min="2024-01-01" max="2025-12-31" />
+                                <input type="date" id="pro-end" name="dateend" value="" min="2024-01-01" max="2025-12-31" />
                                 @error('pro-end')
                                     <div class="my-2"> 
                                         <span class="text text-danger">{{$message}}</span>
@@ -90,6 +86,14 @@
         
 
     <script> src="js/bootstrap.min.js"</script>
+    <script>
+        document.getElementById('pro-start').addEventListener('change', function() {
+            var datestart = this.value;
+
+            document.getElementById('pro-end').min = datestart;
+        });
+    
+    </script>
     {{-- <script>
         var selectedProductIDs = [];
 

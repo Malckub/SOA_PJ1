@@ -16,7 +16,8 @@ class RoomController extends Controller
     {
         
         session(['datestart'=>$request->datestart]);
-        dd($request->all());
+        session(['dateend',$request->dateend]);
+        // dd($request->all());
         $repond = Http::get('http://localhost:8080/SOA_PJ-0.0.1-SNAPSHOT/room');
         $emp = $repond->object();
         // dd($emp);
@@ -46,5 +47,6 @@ class RoomController extends Controller
         ];
         // dd($data);
         return view('make', compact('data'));
+        
     }
 }

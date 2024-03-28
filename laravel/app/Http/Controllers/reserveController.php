@@ -47,9 +47,9 @@ class reserveController extends Controller
             'dateend' =>$request->dateend,
             'roomID'=>$request->roomID
         ];
-        session(['type' => 'malc']);
-
-        // $data2 =[
+        $data = session()->get("daterstart");
+        dd($data);
+                    // $data2 =[
         //     ''
         // ];
         //dd($data1);
