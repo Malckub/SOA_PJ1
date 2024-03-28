@@ -5,6 +5,7 @@
 <form method="POST" action="{{route('send')}}">
 <div class="container py-2">
     <div class="row">
+        <a href="{{route('check')}}">CHECK Your Reservation</a>
         <div class="col-md-6">
             <label for="date_start" class="form-label">CheckIn</label>
             <input type="date" id="datestart" name="datestart" value="" min="2024-01-01" max="2025-12-31" />
@@ -13,6 +14,7 @@
             <label for="date_end" class="form-label">CheckOut</label>
             <input type="date" id="dateend" name="dateend" value="" min="2024-01-01" max="2025-12-31" />
         </div>
+        
     </div>
 </div>    
     <main>

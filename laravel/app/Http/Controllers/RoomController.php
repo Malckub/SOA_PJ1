@@ -18,7 +18,14 @@ class RoomController extends Controller
         //$profile = $respone->object();
         //dd($profile);
         $emp = DB::table('Room')->get();
-        //dd($emp);
+        $res = DB::table('reservation')->get();
+        $result = $res->where('reservation_id', 3)
+                  ->where('email', "saddas@gmail.com")
+                  ->first(); // หรือใช้ get() ถ้าต้องการรายการทั้งหมด
+
+    // ตรวจสอบว่ามีข้อมูลที่ตรงกันหรือไม่
+   
+        //dd($res);
         return view('Main',compact('emp'));
     }
 

@@ -25,15 +25,16 @@ class addReserve extends Controller
             'room'=>[
                 'roomID'=>$request->roomID,
             ],
-            'price'=>$request->price,
+            'price'=>$request->Price,
             'name'=>$request->fname,
             'phone'=>$request->phone,
             'email'=>$request->email,
             'amount'=>"2",
             'date'=>$realdiif
         ];
-        dd(json_encode($reser));
         
+
+        dd($reser);
         $date2->add(new DateInterval('P1D'));
         //echo $date2->format('Y-m-d');
         //dd($diff->days);
