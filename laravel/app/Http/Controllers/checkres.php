@@ -31,7 +31,7 @@ class checkres extends Controller
                     return view("infores",compact('data1','TY'));
                 } else {
                     // ไม่พบข้อมูลที่ตรงกัน
-                    echo "ไม่เจอจร้า";
+                    return back()->with('error', 'ไม่พบข้อมูล');
                 }
         //dd($data);
        

@@ -16,42 +16,38 @@
                     </svg>
 
                     <div class="card-body form-group">
-                        <input type="hidden" name="Type" class="card-title" id="Type" value="{{$data['Type']}}">{{ $data['Type'] }}</input>
+                        <input type="hidden" name="Type" class="card-title" id="Type" value="{{$data['Type']}}"></input>
+                        <p>ประเภทห้อง:</p>
+                        <h1>{{ $data['Type'] }}</h1>
                         <p class="card-text"></p>
                     </div>
 
                     <ul class="list-group list-group-flush">
                         <div class="list-group-item form-group">
                             <input type="hidden" class="form-control" name="Price" value="{{ $data['Price'] }}">
-                            <h1>{{ $data['Price'] }}</h1>
-                        </div>
-                        <div class="list-group-item form-group">
                             <input type="hidden" class="form-control" name="roomID" value="{{ $data['roomID'] }}">
-                           
-                        </div>
-                        <div class="list-group-item form-group">
                             <input type="hidden" class="form-control" name="RoomID" value="{{ $data['roomID'] }}">
-                            <h1>{{ $data['Price'] }}</h1>
+                            <p>ราคา:</p>
+                            <h2>{{ $data['Price'] }}</h2>
                         </div>
-
                         <div class="list-group-item form-group">
                             ห้องขนาด :
                             <input type="hidden" class="form-control" name="Roomsize" value="{{ $data['Roomsize'] }}">
-                            <h1>{{ $data['Roomsize'] }}</h1>
+                            <h2>{{ $data['Roomsize'] }}</h2>
                             ตร.ม.
                         </div>
 
                         <div class="list-group-item form-group" >
                             จำนวน
                             <input type="hidden" class="form-control" name="Person" value="{{ $data['Person'] }}">
-                            <h1>{{ $data['Person'] }}</h1>
+                            <h2>{{ $data['Person'] }}</h2>
                             คน
                         </div>
                         <div class="list-group-item form-group" >
                             CheckIn
                             <input type="hidden" class="form-control" name="datestart" value="{{ $data['datestart'] }}">
                             <input type="hidden" class="form-control" name="dateend" value="{{ $data['dateend'] }}">
-                            <h1>{{ $data['datestart'] }}</h1> CheckOut <h1>{{ $data['dateend'] }}</h1>
+                            <h2>{{ $data['datestart'] }}</h2> CheckOut <h2>{{ $data['dateend'] }}</h2>
                             
                         </div>
                     </ul>
