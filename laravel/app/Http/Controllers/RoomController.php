@@ -22,7 +22,6 @@ class RoomController extends Controller
         $emp = $repond->object();
         
         // $emp = DB::table('room')->get();
-        dd($request->session());
         return view('Main', compact('emp'));
     }
 
@@ -46,8 +45,10 @@ class RoomController extends Controller
             'dateend' => $request->dateend,
             'roomID' => $request->roomID
         ];
+        $ds = session()->get("DS");
+        $de= session()->get("DE");
         // dd($data);
-        return view('make', compact('data'));
+        return view('make', compact('data','de','ds'));
         
     }
 }

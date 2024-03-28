@@ -38,9 +38,9 @@
                         </div>
                         <div class="list-group-item form-group" >
                             CheckIn
-                            <input type="hidden" class="form-control" name="datestart" value="{{ $data['datestart'] }}">
-                            <input type="hidden" class="form-control" name="dateend" value="{{ $data['dateend'] }}">
-                            <h2>{{ $data['datestart'] }}</h2> CheckOut <h2>{{ $data['dateend'] }}</h2>
+                            <input type="hidden" class="form-control" name="datestart" value="{{ $ds}}">
+                            <input type="hidden" class="form-control" name="dateend" value="{{ $de}}">
+                            <h2>{{ $ds }}</h2> CheckOut <h2>{{ $de }}</h2>
                             
                         </div>
                     </ul>
