@@ -12,8 +12,11 @@ use Carbon\Carbon;
 
 class RoomController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        
+        session(['datestart'=>$request->datestart]);
+        dd($request->all());
         $repond = Http::get('http://localhost:8080/SOA_PJ-0.0.1-SNAPSHOT/room');
         $emp = $repond->object();
         // dd($emp);
@@ -23,13 +26,13 @@ class RoomController extends Controller
 
     function send(Request $request)
     {
-        $request->validate([
-            'datestart'=>'required',
-            'dateend'=>'required',
-        ],[
-            'datestart.required'=>'กรุณาเลือกวันที่',
-            'dateend.required'=>'กรุณาเลือกวันที่'
-        ]);
+        // $request->validate([
+        //     'datestart'=>'required',
+        //     'dateend'=>'required',
+        // ],[
+        //     'datestart.required'=>'กรุณาเลือกวันที่',
+        //     'dateend.required'=>'กรุณาเลือกวันที่'
+        // ]);
         // dd($request->all());
         $data = [
             'img' => $request->img,

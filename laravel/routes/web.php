@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\addReserve;
 use App\Http\Controllers\checkres;
+use App\Http\Controllers\main;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +17,9 @@ use App\Http\Controllers\checkres;
 |
 */
 //
-Route::get('/',[RoomController::class,'index'])->name('Main');
+
+Route::any('/Main',[RoomController::class,'index'])->name('Main');
+Route::get('/',[main::class,'index'])->name('real');
 Route::any('/send',[RoomController::class,'send'])->name('send');
 
 // Rout::get('/make',[reserveController::class,'index'])->name('make');
