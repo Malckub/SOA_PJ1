@@ -14,14 +14,15 @@ class RoomController extends Controller
 {
     public function index(Request $request)
     {
-        
-        session(['datestart'=>$request->datestart]);
-        session(['dateend',$request->dateend]);
-        // dd($request->all());
+        session(['DS'=>$request->datestart]);
+        session(['DE'=>$request->dateend]);
+       
+        //dd($request->all());
         $repond = Http::get('http://localhost:8080/SOA_PJ-0.0.1-SNAPSHOT/room');
         $emp = $repond->object();
-        // dd($emp);
+        
         // $emp = DB::table('room')->get();
+        dd($request->session());
         return view('Main', compact('emp'));
     }
 
