@@ -3,7 +3,9 @@
 
 @section('content')
 
-
+<div class="row">
+    <a href="{{ route('real') }}">Back</a>
+</div>
 <form class="main-content"  method="POST" action="{{ route('res') }}">
     @csrf
     <div class="col-md-12">   

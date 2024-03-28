@@ -22,7 +22,7 @@ class RoomController extends Controller
         $emp = $repond->object();
         
         // $emp = DB::table('room')->get();
-        return view('Main', compact('emp'));
+        return view('Main', compact('emp','request'));
     }
 
     function send(Request $request)

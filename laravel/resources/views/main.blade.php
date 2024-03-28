@@ -3,16 +3,25 @@
 
 @section('content')
     
-
+<div class="row g-3">
+    <div class="col-md-6 text-center">
+        <h5> CheckIN : {{$request->datestart}}</h5>
+    </div>
+    <div class="col-md-2 text-center">
+        <h5>CheckOUT : {{$request->dateend}}</h5>
+    </div>
+</div>
     @php
         $image = ['room1.jpg', 'room2.jpg', 'room3.jpg', 'room4.jpg'];
         $x = 0;
     @endphp
     <main>
+       
         <div class="album py-5 bg-body-tertiary">
+            
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+                   
                     @foreach ($emp as $item)
                         <form method="POST" action="{{ route('send') }}">
                             @csrf
